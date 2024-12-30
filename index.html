@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <main class="h-dvh">
+      <header
+        class="h-20 flex items-center justify-between px-4 shadow-md relative z-10"
+      >
+        <h1 class="font-bold">Where in the world?</h1>
+        <div id="Mode" class="flex items-center gap-2">
+          <button class="" id="icon_toggle">
+            <img class="-my-3" src="/assets/moon.svg" alt="" />
+          </button>
+          <span class="font-semibold">Dark Mode</span>
+        </div>
+      </header>
+      <section id="container" class="bg-Very_Light_Gray_bg_LightMode px-8 py-4">
+        <div
+          class="flex flex-wrap items-center justify-start md:justify-between"
+        >
+          <form
+            id="input-search"
+            class="bg-White h-14 w-full md:w-1/2 px-3 py-6 drop-shadow-md rounded-md my-5 flex items-center justify-start"
+          >
+            <button type="submit">
+              <img src="assets/search.svg" alt="" />
+            </button>
+            <span class="ml-5">
+              <input
+                type="text"
+                name="search"
+                id="search"
+                placeholder="Search for a country"
+              />
+            </span>
+          </form>
+          <form id="input-filter" class="w-[250px]">
+            <div class="relative inline-block text-left w-full">
+              <!-- Dropdown Trigger -->
+              <button
+                id="dropdownButton"
+                type="button"
+                class="inline-flex bg-White mb-1 w-full justify-between drop-shadow-md text-[17px] p-4 font-medium rounded-md focus:outline-none"
+              >
+                Filter by Region
+                <img src="public/assets/arrowDrop.svg" class="ml-2 -mr-1" />
+              </button>
+              <!-- Dropdown Menu -->
+              <div
+                id="dropdownMenu"
+                class="absolute hidden z-10 bg-White left-0 w-full bg-white rounded-md shadow-lg focus:outline-none"
+              >
+                <div class="py-1">
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 text-[15px] hover:bg-Very_Light_Gray_bg_LightMode"
+                    >Africa</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 text-[15px] hover:bg-Very_Light_Gray_bg_LightMode"
+                    >America</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 text-[15px] hover:bg-Very_Light_Gray_bg_LightMode"
+                    >Aisa</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 text-[15px] hover:bg-Very_Light_Gray_bg_LightMode"
+                    >Europe</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 text-[15px] hover:bg-Very_Light_Gray_bg_LightMode"
+                    >Oceania</a
+                  >
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div
+          id="features"
+          class="mt-10 h-dvh grid gap-5 md:grid-cols-2 lg:grid-cols-4"
+        >
+          <div
+            id="box"
+            class="bg-White h-1/2 drop-shadow-md max-sm:w-5/6 max-sm:mx-auto rounded-md overflow-hidden flex flex-col space-y-3"
+          >
+            <img
+              src="/assets/Flag_of_Germany_(3-2).svg.png"
+              class="h-[55%]"
+              alt=""
+            />
+            <div class="flex flex-col gap-2 px-6">
+              <h2 class="font-bold text-xl">Germany</h2>
+              <div>
+                <p>
+                  Population:<span
+                    class="text-Dark_gray_LightMode_inputs ml-1"
+                  ></span>
+                </p>
+                <p>
+                  Region:<span
+                    class="text-Dark_gray_LightMode_inputs ml-1"
+                  ></span>
+                </p>
+                <p>
+                  Capital:<span
+                    class="text-Dark_gray_LightMode_inputs ml-1"
+                  ></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -13,16 +13,16 @@
     <title>Vite App</title>
   </head>
   <body>
-    <main class="h-dvh">
+    <main id="home">
       <header
         class="h-20 flex items-center justify-between px-4 shadow-md relative z-10"
       >
         <h1 class="font-bold">Where in the world?</h1>
-        <div id="Mode" class="flex items-center gap-2">
-          <button class="" id="icon_toggle">
-            <img class="-my-3" src="/assets/moon.svg" alt="" />
+        <div id="Mode">
+          <button class="flex items-center gap-2" id="icon_toggle">
+            <img class="mb-[.5px]" src="/assets/moon.svg" alt="" />
+            <span class="font-semibold">Dark Mode</span>
           </button>
-          <span class="font-semibold">Dark Mode</span>
         </div>
       </header>
       <section id="container" class="bg-Very_Light_Gray_bg_LightMode px-8 py-4">
@@ -42,10 +42,11 @@
                 name="search"
                 id="search"
                 placeholder="Search for a country"
+                class="focus:outline-none w-full"
               />
             </span>
           </form>
-          <form id="input-filter" class="w-[250px]">
+          <div id="input-filter" class="w-[250px]">
             <div class="relative inline-block text-left w-full">
               <!-- Dropdown Trigger -->
               <button
@@ -90,43 +91,12 @@
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
         <div
           id="features"
           class="mt-10 h-dvh grid gap-5 md:grid-cols-2 lg:grid-cols-4"
-        >
-          <div
-            id="box"
-            class="bg-White h-1/2 drop-shadow-md max-sm:w-5/6 max-sm:mx-auto rounded-md overflow-hidden flex flex-col space-y-3"
-          >
-            <img
-              src="/assets/Flag_of_Germany_(3-2).svg.png"
-              class="h-[55%]"
-              alt=""
-            />
-            <div class="flex flex-col gap-2 px-6">
-              <h2 class="font-bold text-xl">Germany</h2>
-              <div>
-                <p>
-                  Population:<span
-                    class="text-Dark_gray_LightMode_inputs ml-1"
-                  ></span>
-                </p>
-                <p>
-                  Region:<span
-                    class="text-Dark_gray_LightMode_inputs ml-1"
-                  ></span>
-                </p>
-                <p>
-                  Capital:<span
-                    class="text-Dark_gray_LightMode_inputs ml-1"
-                  ></span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        ></div>
       </section>
     </main>
     <script type="module" src="/src/main.js"></script>

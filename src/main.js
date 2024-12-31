@@ -1,6 +1,7 @@
 import "./style.css";
 import getData from "./services/getData.service";
 import ShowData from "./components/ShowData";
+import loader from "./Helper/loading";
 // Toggle Dropdown Menu Visibility
 const dropdownButton = document.getElementById("dropdownButton");
 const dropdownMenu = document.getElementById("dropdownMenu");
@@ -25,10 +26,11 @@ document.addEventListener("click", (event) => {
     dropdownMenu.classList.add("hidden");
   }
 });
-
+content.innerHTML = loader();
 const main = () => {
   getData().then(async (res) => {
     let data = await res.json();
+    content.innerHTML = "";
     data.forEach((country) => {
       const structuredData = ShowData(country);
       const div = document.createElement("div");

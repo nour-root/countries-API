@@ -36,7 +36,7 @@
             <button type="submit">
               <img src="assets/search.svg" alt="" />
             </button>
-            <span class="ml-5">
+            <span class="ml-5 w-full">
               <input
                 type="text"
                 name="search"
@@ -47,8 +47,18 @@
             </span>
           </form>
           <div id="input-filter" class="w-[250px]">
-            <div class="relative inline-block text-left w-full">
-              <!-- Dropdown Trigger -->
+            <select
+              id="dropdown"
+              class="block w-full bg-white rounded-md shadow-md focus:outline-none py-2 pl-3 pr-10"
+            >
+              <option value="" disabled selected>Select an option</option>
+              <option value="africa">Africa</option>
+              <option value="america">America</option>
+              <option value="aisa">Aisa</option>
+              <option value="europe">Europe</option>
+              <option value="oceania">Oceania</option>
+            </select>
+            <!-- <div class="relative inline-block text-left w-full">
               <button
                 id="dropdownButton"
                 type="button"
@@ -57,7 +67,7 @@
                 Filter by Region
                 <img src="/assets/arrowDrop.svg" class="ml-2 -mr-1" />
               </button>
-              <!-- Dropdown Menu -->
+             
               <div
                 id="dropdownMenu"
                 class="absolute hidden z-10 bg-White left-0 w-full bg-white rounded-md shadow-lg focus:outline-none"
@@ -90,7 +100,7 @@
                   >
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div

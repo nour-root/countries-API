@@ -1,5 +1,6 @@
 const ShowData = (country) => {
-  return `<div
+  return `<a
+            href="/details?country=${country.name}"
             id="${country.region}"
             class="bg-white cursor-pointer hover:shadow-xl hover:-translate-y-1 duration-300 h-full drop-shadow-md max-sm:mx-auto rounded-md overflow-hidden flex flex-col space-y-3"
           >
@@ -24,6 +25,6 @@ const ShowData = (country) => {
                 </p>
               </div>
             </div>
-          </div>`;
+          </a>`;
 };
 export default ShowData;

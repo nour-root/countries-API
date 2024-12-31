@@ -2,6 +2,9 @@ import "./style.css";
 import getData from "./services/getData.service";
 import ShowData from "./components/ShowData";
 import loader from "./Helper/loading";
+import getCountriesByRegion from "./services/getCountriesByRegion.service";
+import searchCountriesByName from "./services/searchCountriesByName.service";
+
 // Toggle Dropdown Menu Visibility
 const dropdownButton = document.getElementById("dropdownButton");
 const dropdownMenu = document.getElementById("dropdownMenu");
@@ -10,33 +13,68 @@ const dropdownMenu = document.getElementById("dropdownMenu");
 const content = document.getElementById("features");
 //
 //filter
-const dropMenu = document.getElementById("dropdownMenu");
-const menu = document.getElementsByClassName("py-1");
+const select = document.getElementById("dropdown");
+const searchForm = document.getElementById("input-search");
+
 //
-dropdownButton.addEventListener("click", () => {
-  dropdownMenu.classList.toggle("hidden");
+
+const toggleInputs = (disabled = true) => {
+  select.disabled = disabled;
+  searchForm.disabled = disabled;
+};
+
+select.addEventListener("change", (e) => {
+  content.innerHTML = loader();
+  toggleInputs(true);
+  getCountriesByRegion(e.target.value)
+    .then(async (res) => {
+      const region = await res.json();
+      content.innerHTML = "";
+      region.forEach((country) => {
+        const structuredData = ShowData(country);
+        const div = document.createElement("div");
+        div.innerHTML = structuredData;
+        content.appendChild(div);
+      });
+    })
+    .finally(() => toggleInputs(false));
 });
 
-// Close the dropdown when clicking outside
-document.addEventListener("click", (event) => {
-  if (
-    !dropdownButton.contains(event.target) &&
-    !dropdownMenu.contains(event.target)
-  ) {
-    dropdownMenu.classList.add("hidden");
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const searchValue = document.getElementById("search").value;
+  if (searchValue && searchValue.length > 3) {
+    content.innerHTML = loader();
+    toggleInputs(true);
+    searchCountriesByName(searchValue)
+      .then(async (res) => {
+        const data = await res.json();
+        content.innerHTML = "";
+        data.forEach((country) => {
+          const structuredData = ShowData(country);
+          const div = document.createElement("div");
+          div.innerHTML = structuredData;
+          content.appendChild(div);
+        });
+      })
+      .finally(() => toggleInputs(false));
   }
 });
+
 content.innerHTML = loader();
 const main = () => {
-  getData().then(async (res) => {
-    let data = await res.json();
-    content.innerHTML = "";
-    data.forEach((country) => {
-      const structuredData = ShowData(country);
-      const div = document.createElement("div");
-      div.innerHTML = structuredData;
-      content.appendChild(div);
-    });
-  });
+  toggleInputs(true);
+  getData()
+    .then(async (res) => {
+      let data = await res.json();
+      content.innerHTML = "";
+      data.forEach((country) => {
+        const structuredData = ShowData(country);
+        const div = document.createElement("div");
+        div.innerHTML = structuredData;
+        content.appendChild(div);
+      });
+    })
+    .finally(() => toggleInputs(false));
 };
 main();

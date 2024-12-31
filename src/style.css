@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body{
-    font-family: "Nunito Sans", serif;
+body {
+  font-family: "Nunito Sans", serif;
+}
+
+#dropdown:disabled {
+  cursor: not-allowed;
 }

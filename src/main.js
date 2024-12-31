@@ -34,7 +34,7 @@ const main = () => {
     data.forEach((country) => {
       const structuredData = ShowData(country);
       const div = document.createElement("div");
-      div.innerHTML = `${structuredData}`;
+      div.innerHTML = structuredData;
       content.appendChild(div);
     });
   });

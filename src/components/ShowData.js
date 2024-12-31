@@ -1,7 +1,7 @@
 const ShowData = (country) => {
   return `<div
             id="box"
-            class="bg-White h-full drop-shadow-md max-sm:w-5/6 max-sm:mx-auto rounded-md overflow-hidden flex flex-col space-y-3"
+            class="bg-white h-full drop-shadow-md max-sm:w-5/6 max-sm:mx-auto rounded-md overflow-hidden flex flex-col space-y-3"
           >
             <img src="${country.flags.png}" class="h-[55%]" alt="" />
             <div class="flex flex-col gap-2 px-6">

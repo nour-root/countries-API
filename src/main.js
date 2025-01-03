@@ -4,20 +4,28 @@ import ShowData from "./components/ShowData";
 import loader from "./Helper/loading";
 import getCountriesByRegion from "./services/getCountriesByRegion.service";
 import searchCountriesByName from "./services/searchCountriesByName.service";
-
-// Toggle Dropdown Menu Visibility
-const dropdownButton = document.getElementById("dropdownButton");
-const dropdownMenu = document.getElementById("dropdownMenu");
+import sun from "./Helper/Sun";
+import moon from "./Helper/moon";
 //
-// display
 const content = document.getElementById("features");
-//
-//filter
 const select = document.getElementById("dropdown");
 const searchForm = document.getElementById("input-search");
-
+const switchMode = document.getElementById("icon_toggle");
 //
-
+switchMode.addEventListener("click", () => {
+  const iconMode = document.querySelector(".iconMode");
+  const TextMode = document.querySelector(".TextMode");
+  document.body.classList.toggle("dark");
+  //
+  if (document.body.classList.contains("dark")) {
+    iconMode.innerHTML = sun();
+    TextMode.textContent = " Light Mode"; // Update text
+  } else {
+    iconMode.innerHTML = moon();
+    TextMode.textContent = " Dark Mode"; // Reset text
+  }
+});
+//
 const toggleInputs = (disabled = true) => {
   select.disabled = disabled;
   searchForm.disabled = disabled;

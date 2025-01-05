@@ -53,7 +53,7 @@ select.addEventListener("change", (e) => {
       region.forEach((country) => {
         const structuredData = ShowData(country);
         const a = document.createElement("a");
-        a.href = `details.html?name=${country.name}`;
+        a.href = `Project/details.html?name=${country.name}`;
         a.innerHTML = structuredData;
         content.appendChild(a);
       });
@@ -74,7 +74,7 @@ searchForm.addEventListener("submit", (e) => {
         data.forEach((country) => {
           const structuredData = ShowData(country);
           const a = document.createElement("a");
-          a.href = `details.html?name=${country.name}`;
+          a.href = `Project/details.html?name=${country.name}`;
           a.innerHTML = structuredData;
           content.appendChild(a);
         });
@@ -93,7 +93,7 @@ const main = () => {
       data.forEach((country) => {
         const structuredData = ShowData(country);
         const a = document.createElement("a");
-        a.href = `details.html?name=${country.name}`;
+        a.href = `Project/details.html?name=${country.name}`;
         a.innerHTML = structuredData;
         content.appendChild(a);
       });

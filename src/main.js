@@ -93,7 +93,7 @@ const main = () => {
       data.forEach((country) => {
         const structuredData = ShowData(country);
         const a = document.createElement("a");
-        a.href = `details.html?name=${country.name}`;
+        a.href = `/details.html?name=${country.name}`;
         a.innerHTML = structuredData;
         content.appendChild(a);
       });

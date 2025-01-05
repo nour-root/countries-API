@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="//Project/src/style.css" />
-    <link rel="shortcut icon" href="./public/vite.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="/Project/src/style.css" />
+    <link rel="shortcut icon" href="/vite.svg" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,7 +15,7 @@
   </head>
   <body class="dark:bg-Very_dark_blue_Mode_bg bg-Very_Light_Gray_bg_LightMode">
     <header
-      class="h-20 dark:bg-dark_blue_Elements flex items-center justify-between px-4 shadow-md relative z-10"
+      class="h-20 w-[100%] dark:bg-dark_blue_Elements flex items-center justify-between px-4 shadow-md relative z-10"
     >
       <h1 class="font-bold text-Very_dark_blue_Text_Light_Mode dark:text-white">
         Where in the world?
@@ -35,35 +35,43 @@
         <span class="TextMode font-semibold dark:text-white">Dark Mode</span>
       </button>
     </header>
-    <main class="py-10 px-8 flex flex-col space-y-16 items-start">
+    <div
+      id="details"
+      class="py-10 px-6 max-[360px]:px-1 flex flex-col space-y-16 items-start"
+    >
       <button
-        class="bg-white dark:bg-dark_blue_Elements dark:text-Very_Light_Gray_bg_LightMode rounded-md hover:scale-[1.1] duration-150 drop-shadow-lg w-fit flex items-center px-3 space-x-2"
+        class="bg-white dark:bg-dark_blue_Elements dark:text-Very_Light_Gray_bg_LightMode rounded-md hover:scale-[1.1] duration-150 drop-shadow-lg w-fit flex items-center pt-1 px-3 space-x-2"
       >
-        <svg
-          class="w-8 h-10 ml-2"
-          viewBox="0 0 21 21"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M7.499 6.497L3.5 10.499l4 4.001m9-4h-13"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          /></svg
-        ><a class="block text-lg" href="./index.html">Back</a>
+        <a href="index.html" class="text-xl">
+          <svg
+            class="w-8 h-10 ml-1 -mt-1 inline-block"
+            viewBox="0 0 21 21"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.499 6.497L3.5 10.499l4 4.001m9-4h-13"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          Back
+        </a>
       </button>
-      <div class="card flex gap-16 max-md:flex-col">
+      <div class="card flex gap-16 max-lg:flex-col">
         <img
-          src="/assets/Flag_of_Germany_(3-2).svg.png"
-          class="flex-1"
+          id="flagImage"
+          src=""
+          class="max-lg:w-full flex-1 max-md:w-[95%] border border-slate-300"
           alt=""
         />
         <div
-          class="flex-1 flex items-center flex-wrap justify-start gap-x-[100px] gap-y-10"
+          class="flex-1 md:flex items-center flex-wrap justify-start space-y-10 gap-x-[100px] gap-y-10"
         >
           <div class="main-info space-y-1 flex-col">
             <h1
+              id="nameH1"
               class="font-bold text-2xl mb-6 dark:text-Very_Light_Gray_bg_LightMode"
             >
               Germany
@@ -73,32 +81,37 @@
             >
               <p>
                 Native Name:<span
+                  id="native-name"
                   class="text-Dark_gray_LightMode_inputs_and_Text"
                 >
-                  jsadlfkjawe;</span
-                >
+                </span>
               </p>
               <p>
                 Population:<span
+                  id="population"
                   class="text-Dark_gray_LightMode_inputs_and_Text"
                 >
-                  jsadlfkjawe;</span
-                >
+                </span>
               </p>
               <p>
-                Region:<span class="text-Dark_gray_LightMode_inputs_and_Text">
-                  jsadlfkjawe;</span
+                Region:<span
+                  id="region"
+                  class="text-Dark_gray_LightMode_inputs_and_Text"
                 >
+                </span>
               </p>
               <p>
                 Sub Region:<span
+                  id="sub-region"
                   class="text-Dark_gray_LightMode_inputs_and_Text"
                 >
-                  jsadlfkjawe;</span
-                >
+                </span>
               </p>
               <p>
-                Capital:<span class="text-Dark_gray_LightMode_inputs_and_Text">
+                Capital:<span
+                  id="capital"
+                  class="text-Dark_gray_LightMode_inputs_and_Text"
+                >
                   jsadlfkjawe;</span
                 >
               </p>
@@ -110,22 +123,24 @@
             <div class="text-lg flex-col space-y-3">
               <p>
                 Top Level Domain:<span
+                  id="level-domain"
                   class="text-Dark_gray_LightMode_inputs_and_Text"
                 >
-                  msfalkeifjew</span
-                >
+                </span>
               </p>
               <p>
                 Currenies:<span
+                  id="currenies"
                   class="text-Dark_gray_LightMode_inputs_and_Text"
                 >
-                  msfalkeifjew</span
-                >
+                </span>
               </p>
               <p>
-                Language:<span class="text-Dark_gray_LightMode_inputs_and_Text">
-                  msfalkeifjew</span
+                Language:<span
+                  id="languages"
+                  class="text-Dark_gray_LightMode_inputs_and_Text"
                 >
+                </span>
               </p>
             </div>
           </div>
@@ -133,28 +148,18 @@
             class="border-countries flex items-center w-full max-md:flex-wrap"
           >
             <h2
-              class="text-xl font-semibold mb-3 dark:text-Very_Light_Gray_bg_LightMode"
+              class="text-xl font-semibold max-md:mb-4 dark:text-Very_Light_Gray_bg_LightMode"
             >
               Border Countries:
             </h2>
-            <div class="flex -mt-2 gap-3 ml-1 justify-center max-md:w-full">
-              <span
-                class="border border-slate-300 w-28 py-1 text-center h-fit text-Dark_gray_LightMode_inputs_and_Text"
-                >aaa</span
-              >
-              <span
-                class="border border-slate-300 w-28 py-1 text-center h-fit text-Dark_gray_LightMode_inputs_and_Text"
-                >aaa</span
-              >
-              <span
-                class="border border-slate-300 w-28 py-1 text-center h-fit text-Dark_gray_LightMode_inputs_and_Text"
-                >aaa</span
-              >
-            </div>
+            <div
+              id="bordersCountry"
+              class="flex gap-3 ml-1 max-md:w-full justify-center flex-wrap"
+            ></div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   </body>
-  <script src="./src/main.js" type="module"></script>
+  <script src="./src/details.js" type="module"></script>
 </html>

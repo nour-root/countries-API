@@ -9,3 +9,18 @@ body {
   cursor: not-allowed;
 }
 
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.5);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation: rotateAnimation 0.2s ease-in-out;
+}

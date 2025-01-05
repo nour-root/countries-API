@@ -11,18 +11,31 @@ const content = document.getElementById("features");
 const select = document.getElementById("dropdown");
 const searchForm = document.getElementById("input-search");
 const switchMode = document.getElementById("icon_toggle");
+const iconMode = document.querySelector(".iconMode");
+const TextMode = document.querySelector(".TextMode");
+//
+document.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark");
+    iconMode.innerHTML = sun();
+    TextMode.textContent = " Light Mode"; // Update text
+  } else {
+    localStorage.removeItem("darkMode");
+    iconMode.innerHTML = moon();
+    TextMode.textContent = " Dark Mode"; // Resett
+  }
+});
 //
 switchMode.addEventListener("click", () => {
-  const iconMode = document.querySelector(".iconMode");
-  const TextMode = document.querySelector(".TextMode");
-  document.body.classList.toggle("dark");
-  //
+  const isDarkMode = document.body.classList.toggle("dark");
+  localStorage.setItem("darkMode", isDarkMode);
   if (document.body.classList.contains("dark")) {
     iconMode.innerHTML = sun();
     TextMode.textContent = " Light Mode"; // Update text
   } else {
+    localStorage.removeItem("darkMode");
     iconMode.innerHTML = moon();
-    TextMode.textContent = " Dark Mode"; // Reset text
+    TextMode.textContent = " Dark Mode"; // Resett
   }
 });
 //
@@ -30,7 +43,6 @@ const toggleInputs = (disabled = true) => {
   select.disabled = disabled;
   searchForm.disabled = disabled;
 };
-
 select.addEventListener("change", (e) => {
   content.innerHTML = loader();
   toggleInputs(true);
@@ -40,9 +52,10 @@ select.addEventListener("change", (e) => {
       content.innerHTML = "";
       region.forEach((country) => {
         const structuredData = ShowData(country);
-        const div = document.createElement("div");
-        div.innerHTML = structuredData;
-        content.appendChild(div);
+        const a = document.createElement("a");
+        a.href = `/details.html?name=${country.name}`;
+        a.innerHTML = structuredData;
+        content.appendChild(a);
       });
     })
     .finally(() => toggleInputs(false));
@@ -51,18 +64,19 @@ select.addEventListener("change", (e) => {
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const searchValue = document.getElementById("search").value;
+  content.innerHTML = loader();
   if (searchValue && searchValue.length > 3) {
-    content.innerHTML = loader();
     toggleInputs(true);
     searchCountriesByName(searchValue)
       .then(async (res) => {
-        const data = await res.json();
         content.innerHTML = "";
+        const data = await res.json();
         data.forEach((country) => {
           const structuredData = ShowData(country);
-          const div = document.createElement("div");
-          div.innerHTML = structuredData;
-          content.appendChild(div);
+          const a = document.createElement("a");
+          a.href = `/details.html?name=${country.name}`;
+          a.innerHTML = structuredData;
+          content.appendChild(a);
         });
       })
       .finally(() => toggleInputs(false));
@@ -78,9 +92,10 @@ const main = () => {
       content.innerHTML = "";
       data.forEach((country) => {
         const structuredData = ShowData(country);
-        const div = document.createElement("div");
-        div.innerHTML = structuredData;
-        content.appendChild(div);
+        const a = document.createElement("a");
+        a.href = `/details.html?name=${country.name}`;
+        a.innerHTML = structuredData;
+        content.appendChild(a);
       });
     })
     .finally(() => toggleInputs(false));

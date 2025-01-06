@@ -2,10 +2,8 @@ import "./style.css";
 import moon from "./Helper/moon";
 import sun from "./Helper/Sun";
 import getDetailsCountry from "./services/getDetailsCountryByName.service";
-import loader from "./Helper/loading";
 //
 const switchMode = document.getElementById("icon_toggle");
-const detailsContent = document.querySelector(".card");
 const countryName = new URLSearchParams(location.search).get("name");
 const flagimage = document.getElementById("flagImage");
 const countryNameH1 = document.querySelector("#nameH1");

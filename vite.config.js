@@ -1,6 +1,6 @@
 const { defineConfig } = require('vite')
 
-module.exports = defineConfig({
+export default defineConfig({
   build: {
     rollupOptions: {
       input: {
